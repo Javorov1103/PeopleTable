@@ -28,6 +28,7 @@ namespace People.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddCors();
             services.AddTransient<IPersonRepo>(f => new PersonRepo(@"Server=DESKTOP-N8JQK16\SQLEXPRESS;Database=PeopleDb;Trusted_Connection=True;MultipleActiveResultSets=true"));
         }
 
@@ -44,6 +45,7 @@ namespace People.API
             }
 
             //app.UseHttpsRedirection();
+            app.UseCors(opt => opt.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
         }
     }

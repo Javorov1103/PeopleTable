@@ -1,0 +1,34 @@
+<form #registerForm="ngForm" (ngSubmit)="create()">
+  <h2 class="text-center text-primary">Create Person</h2>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="firstName" 
+    [(ngModel)]="model.firstName" placeholder="First Name">
+  </div>
+  
+  <div class="form-group">
+    <input type="text" class="form-control" required name="lastName" 
+    [(ngModel)]="model.lastName" placeholder="Last Name">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="egn" 
+    [(ngModel)]="model.egn" placeholder="EGN">
+  </div>
+  
+  <div class="form-group">
+    <input type="text" class="form-control" required name="weight" 
+    [(ngModel)]="model.weight" placeholder="Weight in kilos">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="height" 
+    [(ngModel)]="model.height" placeholder="Height in meters">
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-success mr-2" type="submit">Create</button>
+    <button class="btn btn-default" type="button" (click)="cancel()"  >Cancel</button>
+  </div>
+
+</form>

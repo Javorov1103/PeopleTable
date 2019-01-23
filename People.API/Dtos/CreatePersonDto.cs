@@ -12,5 +12,7 @@ namespace People.API.Dtos
         public string EGN { get; set; }
 
         public decimal Height { get; set; }
+
+        public decimal Weight { get; set; }
     }
 }

@@ -6,6 +6,7 @@ namespace People.API.Helpers
 {
     public class AutoMapperProfiles : Profile
     {
+        // Fill our bindings 
         public AutoMapperProfiles()
         {
             CreateMap<CreatePersonDto,Person>();

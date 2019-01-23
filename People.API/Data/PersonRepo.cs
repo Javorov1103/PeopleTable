@@ -18,7 +18,14 @@ namespace People.API.Data
 
         public void Create(CreatePersonDto model)
         {
-            throw new System.NotImplementedException();
+            string sql = "INSERT INTO Person (FirstName, LastName, EGN, Height, Weight) VALUES (@FirstName, @LastName, @EGN, @Height, @Weight)";
+            
+           using(var connection= new SqlConnection(connectionString))
+           {
+               connection.Execute(sql, new {FirstName = model.FirstName,LastName = model.LastName,
+               EGN = model.EGN, Height =model.Height, Weight = model.Weight
+               });
+           }
         }
 
         public void Delete(int id)

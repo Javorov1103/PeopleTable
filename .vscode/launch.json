@@ -9,9 +9,10 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/People.API/bin/Debug/netcoreapp2.1/People.API.dll",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/DatingApp.API/bin/Debug/netcoreapp2.1/DatingApp.API.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/People.API",
+            "cwd": "${workspaceFolder}/DatingApp.API",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
