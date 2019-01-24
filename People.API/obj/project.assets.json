@@ -11867,11 +11867,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Kalin\\Desktop\\PeopleTable\\People.API\\People.API.csproj",
+      "projectUniqueName": "C:\\Users\\Kalin\\Documents\\MyProjects\\PeopleTable\\People.APi\\People.API.csproj",
       "projectName": "People.API",
-      "projectPath": "c:\\Users\\Kalin\\Desktop\\PeopleTable\\People.API\\People.API.csproj",
+      "projectPath": "C:\\Users\\Kalin\\Documents\\MyProjects\\PeopleTable\\People.APi\\People.API.csproj",
       "packagesPath": "C:\\Users\\Kalin\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Kalin\\Desktop\\PeopleTable\\People.API\\obj\\",
+      "outputPath": "C:\\Users\\Kalin\\Documents\\MyProjects\\PeopleTable\\People.APi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

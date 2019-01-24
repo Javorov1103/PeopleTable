@@ -8,13 +8,13 @@ import { AppComponent } from './app.component';
 import { PersonService } from './_services/person.service';
 import { PeopleTableComponent } from './people/people-table/people-table.component';
 import { PersonCreateComponent } from './people/person-create/person-create.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     PeopleTableComponent,
-    PersonCreateComponent
+    PersonCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
-   PersonService
+   PersonService,
+   FormBuilder
   ],
   bootstrap: [AppComponent]
 })

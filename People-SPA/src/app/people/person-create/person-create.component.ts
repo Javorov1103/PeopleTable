@@ -17,7 +17,7 @@ export class PersonCreateComponent implements OnInit {
 
   create() {
     this.personService.createPerson(this.model).subscribe( () => {
-      console.log('registration succsesfull');
+      console.log('creation succsesfull');
     }, error => {
       console.log(error);
     });

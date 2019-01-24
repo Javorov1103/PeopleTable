@@ -12,3 +12,17 @@ C:\Users\Kalin\Desktop\PeopleTable\People.API\obj\Debug\netcoreapp2.1\People.API
 C:\Users\Kalin\Desktop\PeopleTable\People.API\obj\Debug\netcoreapp2.1\People.API.RazorTargetAssemblyInfo.cache
 C:\Users\Kalin\Desktop\PeopleTable\People.API\obj\Debug\netcoreapp2.1\People.API.dll
 C:\Users\Kalin\Desktop\PeopleTable\People.API\obj\Debug\netcoreapp2.1\People.API.pdb
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\bin\Debug\netcoreapp2.1\People.API.deps.json
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\bin\Debug\netcoreapp2.1\People.API.runtimeconfig.json
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\bin\Debug\netcoreapp2.1\People.API.runtimeconfig.dev.json
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\bin\Debug\netcoreapp2.1\People.API.dll
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\bin\Debug\netcoreapp2.1\People.API.pdb
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\obj\Debug\netcoreapp2.1\People.API.csprojAssemblyReference.cache
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\obj\Debug\netcoreapp2.1\People.API.csproj.CoreCompileInputs.cache
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\obj\Debug\netcoreapp2.1\People.API.RazorAssemblyInfo.cache
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\obj\Debug\netcoreapp2.1\People.API.RazorAssemblyInfo.cs
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\obj\Debug\netcoreapp2.1\People.API.AssemblyInfoInputs.cache
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\obj\Debug\netcoreapp2.1\People.API.AssemblyInfo.cs
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\obj\Debug\netcoreapp2.1\People.API.RazorTargetAssemblyInfo.cache
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\obj\Debug\netcoreapp2.1\People.API.dll
+C:\Users\Kalin\Documents\MyProjects\PeopleTable\People.APi\obj\Debug\netcoreapp2.1\People.API.pdb

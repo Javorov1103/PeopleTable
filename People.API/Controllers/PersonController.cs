@@ -28,7 +28,7 @@ namespace People.API.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> Create(CreatePersonDto model) {
+        public IActionResult Create(CreatePersonDto model) {
             this.repo.Create(model);
 
             return StatusCode(201);
