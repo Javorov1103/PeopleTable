@@ -11,12 +11,14 @@ import { PersonCreateComponent } from './people/person-create/person-create.comp
 import { FormsModule, FormBuilder } from '@angular/forms';
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
+import { TwoDigitDecimaNumberDirective } from './_helpers/two-digit-decimal.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     PeopleTableComponent,
     PersonCreateComponent,
+    TwoDigitDecimaNumberDirective
   ],
   imports: [
     BrowserModule,

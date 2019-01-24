@@ -28,7 +28,7 @@
 
       <div class="form-group">
         <label for="weight">Weight</label>
-        <input type="text" class="form-control" name="weight" [(ngModel)]="model.weight" #weight="ngModel" [ngClass]="{ 'is-invalid': f.submitted && weight.invalid }" required />
+        <input type="text" class="form-control" name="weight" [(ngModel)]="model.weight" #weight="ngModel" [ngClass]="{ 'is-invalid': f.submitted && weight.invalid }" required appTwoDigitDecimaNumber/>
         <div *ngIf="f.submitted && weight?.invalid" class="invalid-feedback">
           <div *ngIf="weight.errors.required">Weight is required</div>
         </div>
@@ -36,7 +36,7 @@
 
       <div class="form-group">
         <label for="height">Height</label>
-        <input type="text" class="form-control" name="height" [(ngModel)]="model.height" #height="ngModel" [ngClass]="{ 'is-invalid': f.submitted && height.invalid }" required />
+        <input type="text" class="form-control" name="height" [(ngModel)]="model.height" #height="ngModel" [ngClass]="{ 'is-invalid': f.submitted && height.invalid }" required appTwoDigitDecimaNumber/>
         <div *ngIf="f.submitted && height?.invalid" class="invalid-feedback">
           <div *ngIf="height.errors.required">Height is required</div>
         </div>
