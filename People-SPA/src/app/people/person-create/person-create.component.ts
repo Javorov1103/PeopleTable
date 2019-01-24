@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PersonService } from 'src/app/_services/person.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-person-create',
@@ -18,6 +19,7 @@ export class PersonCreateComponent implements OnInit {
   create() {
     this.personService.createPerson(this.model).subscribe( () => {
       console.log('creation succsesfull');
+      window.location.reload();
     }, error => {
       console.log(error);
     });

@@ -1,5 +1,5 @@
 
-<button class="btn btn-primary btn-lg mt-5 ml-5" (click)="registerToggle()">Create a Person</button>
+<button class="btn btn-primary btn-lg mt-5 ml-5" [routerLink]="['/create']" routerLinkActive="router-link-active"  (click)="registerToggle()">Create a Person</button>
 
 <div *ngIf="createMode" class="container">
   <div class="row justify-content-center">

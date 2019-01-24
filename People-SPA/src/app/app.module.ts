@@ -9,6 +9,8 @@ import { PersonService } from './_services/person.service';
 import { PeopleTableComponent } from './people/people-table/people-table.component';
 import { PersonCreateComponent } from './people/person-create/person-create.component';
 import { FormsModule, FormBuilder } from '@angular/forms';
+import { appRoutes } from './routes';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { FormsModule, FormBuilder } from '@angular/forms';
     MatButtonModule,
     MatCheckboxModule,
     MatTableModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
    PersonService,
