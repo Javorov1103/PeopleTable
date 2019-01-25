@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="text-center text-primary">Edit Person {{data.id}}</h2>
+  <h2 class="text-center text-primary">Edit Person with id {{data.id}}</h2>
   <form name="createForm" (ngSubmit) ="f.form.valid && edit()" #f="ngForm" novalidate >
       <div class="form-group">
           <label for="firstName">First Name</label>
@@ -19,10 +19,11 @@
 
       <div class="form-group">
         <label for="egn">EGN</label>
-        <input type="text" class="form-control" name="egn" [(ngModel)]="data.egn" #egn="ngModel" [ngClass]="{ 'is-invalid': f.submitted && egn.invalid }" required minlength="10" maxlength ="10"/>
+        <input pattern="\d{10}" type="text" class="form-control" name="egn" [(ngModel)]="data.egn" #egn="ngModel" [ngClass]="{ 'is-invalid': f.submitted && egn.invalid }" required />
         <div *ngIf="f.submitted && egn?.invalid" class="invalid-feedback">
           <div *ngIf="egn?.errors.required">EGN is required</div>
-          <div *ngIf="egn?.errors.minlength">EGN lenght must be exactly 10 symbols</div>
+          <!-- <div *ngIf="egn?.errors.minlength">EGN lenght must be exactly 10 symbols</div> -->
+          <div *ngIf="egn?.errors.pattern">EGN must contains exactly 10 digits </div>
       </div>
       </div>
 
