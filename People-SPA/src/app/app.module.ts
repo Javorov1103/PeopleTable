@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatSortModule, MatTableModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatSortModule, MatToolbarModule,
+  MatTableModule, MatPaginatorModule, MatIconModule, MatDialogModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { PersonService } from './_services/person.service';
@@ -12,29 +13,38 @@ import { FormsModule, FormBuilder } from '@angular/forms';
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { TwoDigitDecimaNumberDirective } from './_helpers/two-digit-decimal.directive';
+import { PersonEditComponent } from './people/person-edit/person-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PeopleTableComponent,
     PersonCreateComponent,
-    TwoDigitDecimaNumberDirective
+    TwoDigitDecimaNumberDirective,
+    PersonEditComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDialogModule,
     MatSortModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatIconModule,
     MatTableModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatPaginatorModule,
+    MatToolbarModule
   ],
   providers: [
    PersonService,
    FormBuilder
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    PersonEditComponent
+  ]
 })
 export class AppModule { }

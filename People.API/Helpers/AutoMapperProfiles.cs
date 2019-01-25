@@ -10,6 +10,7 @@ namespace People.API.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<CreatePersonDto,Person>();
+            CreateMap<EditPersonDto,Person>();
         }
     }
 }

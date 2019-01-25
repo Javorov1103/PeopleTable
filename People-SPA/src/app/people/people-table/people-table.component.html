@@ -1,50 +1,78 @@
+<mat-toolbar color="primary">
+    <span>Person Table</span>
+    <span class="spacer"></span>
+    Reload data:
+    <button mat-icon-button (click)="refresh()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </mat-toolbar>
 
-<button class="btn btn-primary btn-lg mt-5 ml-5" [routerLink]="['/create']" routerLinkActive="router-link-active"  (click)="registerToggle()">Create a Person</button>
+<div class="container">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-<div *ngIf="createMode" class="container">
-  <div class="row justify-content-center">
-  <div class="col-4">
-      <app-person-create (cancelCreate)="cancelCreateMode($event)"></app-person-create>
-  </div>
-  </div>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="egn">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> EGN </th>
+          <td mat-cell *matCellDef="let element"> {{element.egn}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="height">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Height </th>
+          <td mat-cell *matCellDef="let element" class='flex'> {{element.height}} </td>
+        </ng-container>
+      
+      
+          <!-- actions -->  
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>
+              <!-- <button class="btn btn-primary btn-lg mt-5 ml-5"  routerLinkActive="router-link-active"  (click)="createToggle()">Create a Person</button> -->
+            <button mat-icon-button color="primary" (click)="addNew()">
+                <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+            </button>
+          </mat-header-cell>
+      
+          <mat-cell *matCellDef="let row; let i=index;">
+            <button mat-icon-button color="accent" (click)="editPerson(row.id, row.firstName, row.lastName, row.egn, row.weight, row.height)">
+              <mat-icon aria-label="Edit">edit</mat-icon>
+            </button>
+      
+            <button mat-icon-button color="accent" (click)="editToggle()">
+              <mat-icon aria-label="Delete">delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      <mat-paginator #paginator
+                       [length]="dataSource?.filteredData.length"
+                       [pageIndex]="0"
+                       [pageSize]="10"
+                       [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
 </div>
-
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
-  
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-  </ng-container>
-
-  
-  <ng-container matColumnDef="firstName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-  </ng-container>
-
-  
-  <ng-container matColumnDef="lastName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
-  </ng-container>
-
-  
-  <ng-container matColumnDef="egn">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> EGN </th>
-    <td mat-cell *matCellDef="let element"> {{element.egn}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="height">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Height </th>
-    <td mat-cell *matCellDef="let element"> {{element.height}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>

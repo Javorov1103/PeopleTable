@@ -31,6 +31,13 @@ namespace People.API.Controllers
         public IActionResult Create(CreatePersonDto model) {
             this.repo.Create(model);
 
+            return StatusCode(200);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Edit(int id,EditPersonDto model) {
+            this.repo.Edit(model);
+
             return StatusCode(201);
         }
     }

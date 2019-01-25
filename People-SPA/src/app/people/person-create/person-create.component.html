@@ -5,7 +5,7 @@
           <label for="firstName">First Name</label>
           <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
           <div *ngIf="f.submitted && firstName?.invalid" class="invalid-feedback">
-            <div *ngIf="firstName.errors.required">First Name is required</div>
+            <div *ngIf="firstName?.errors.required">First Name is required</div>
           </div>
       </div>
 
@@ -13,7 +13,7 @@
         <label for="lastName">Last Name</label>
         <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
         <div *ngIf="f.submitted && lastName?.invalid" class="invalid-feedback">
-          <div *ngIf="lastName.errors.required">Last Name is required</div>
+          <div *ngIf="lastName?.errors.required">Last Name is required</div>
       </div>
       </div>
 
@@ -21,8 +21,8 @@
         <label for="egn">EGN</label>
         <input type="text" class="form-control" name="egn" [(ngModel)]="model.egn" #egn="ngModel" [ngClass]="{ 'is-invalid': f.submitted && egn.invalid }" required minlength="10" maxlength ="10"/>
         <div *ngIf="f.submitted && egn?.invalid" class="invalid-feedback">
-          <div *ngIf="egn.errors.required">EGN is required</div>
-          <div *ngIf="egn.errors.minlength">EGN lenght must be exactly 10 symbols</div>
+          <div *ngIf="egn?.errors.required">EGN is required</div>
+          <div *ngIf="egn?.errors.minlength">EGN lenght must be exactly 10 symbols</div>
       </div>
       </div>
 
@@ -30,7 +30,7 @@
         <label for="weight">Weight</label>
         <input type="text" class="form-control" name="weight" [(ngModel)]="model.weight" #weight="ngModel" [ngClass]="{ 'is-invalid': f.submitted && weight.invalid }" required appTwoDigitDecimaNumber/>
         <div *ngIf="f.submitted && weight?.invalid" class="invalid-feedback">
-          <div *ngIf="weight.errors.required">Weight is required</div>
+          <div *ngIf="weight?.errors.required">Weight is required</div>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
         <label for="height">Height</label>
         <input type="text" class="form-control" name="height" [(ngModel)]="model.height" #height="ngModel" [ngClass]="{ 'is-invalid': f.submitted && height.invalid }" required appTwoDigitDecimaNumber/>
         <div *ngIf="f.submitted && height?.invalid" class="invalid-feedback">
-          <div *ngIf="height.errors.required">Height is required</div>
+          <div *ngIf="height?.errors.required">Height is required</div>
         </div>
       </div>
 

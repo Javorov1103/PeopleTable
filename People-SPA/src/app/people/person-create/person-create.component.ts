@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { PersonService } from 'src/app/_services/person.service';
-import { Router } from '@angular/router';
+import { MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-person-create',
@@ -11,22 +11,25 @@ export class PersonCreateComponent implements OnInit {
   @Output() cancelCreate = new EventEmitter();
   model: any = {};
 
-  constructor(private personService: PersonService) { }
+  constructor(private personService: PersonService, private dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
+//Method for sending data for needed for creating Peson object in the db
   create() {
     this.personService.createPerson(this.model).subscribe( () => {
       console.log('creation succsesfull');
+      this.dialog.closeAll();
       window.location.reload();
     }, error => {
       console.log(error);
     });
   }
 
+  // Method for closing the creating dialog
   cancel() {
-    this.cancelCreate.emit(false);
+    this.dialog.closeAll();
   }
 
 }

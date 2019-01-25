@@ -33,9 +33,21 @@ namespace People.API.Data
             throw new System.NotImplementedException();
         }
 
-        public void Edit(int id)
+
+        //Edit concrete person
+        public void Edit(EditPersonDto model)
         {
-            throw new System.NotImplementedException();
+            string sql = @"UPDATE Person
+            SET FirstName = @FirstName, LastName = @LastName, EGN = @EGN, Height = @Height, Weight = @Weight
+            WHERE Id = @Id;";
+
+            using(var connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(sql, new {
+                    FirstName = model.FirstName,LastName = model.LastName,
+                    EGN = model.EGN, Height =model.Height, Weight = model.Weight, Id = model.Id
+                });
+            }
         }
 
         //Get all people from db

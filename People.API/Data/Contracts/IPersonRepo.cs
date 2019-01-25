@@ -12,6 +12,6 @@ namespace People.API.Data.Contracts
 
          void Delete(int id);
 
-         void Edit(int id);
+         void Edit(EditPersonDto model);
     }
 }
