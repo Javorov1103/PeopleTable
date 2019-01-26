@@ -16,7 +16,7 @@ export class PersonCreateComponent implements OnInit {
   ngOnInit() {
   }
 
-//Method for sending data for needed for creating Peson object in the db
+// Method for sending data for needed for creating Peson object in the db
   create() {
     this.personService.createPerson(this.model).subscribe( () => {
       console.log('creation succsesfull');
@@ -25,11 +25,6 @@ export class PersonCreateComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-  }
-
-  // Method for closing the creating dialog
-  cancel() {
-    this.dialog.closeAll();
   }
 
 }

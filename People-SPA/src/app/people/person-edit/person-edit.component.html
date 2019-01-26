@@ -22,7 +22,6 @@
         <input pattern="\d{10}" type="text" class="form-control" name="egn" [(ngModel)]="data.egn" #egn="ngModel" [ngClass]="{ 'is-invalid': f.submitted && egn.invalid }" required />
         <div *ngIf="f.submitted && egn?.invalid" class="invalid-feedback">
           <div *ngIf="egn?.errors.required">EGN is required</div>
-          <!-- <div *ngIf="egn?.errors.minlength">EGN lenght must be exactly 10 symbols</div> -->
           <div *ngIf="egn?.errors.pattern">EGN must contains exactly 10 digits </div>
       </div>
       </div>
@@ -44,8 +43,8 @@
       </div>
 
       <div class="form-group text-center">
-        <button  class="btn btn-success mr-2" type="submit">Edit</button>
-        <button  class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+        <button  class="btn btn-success mr-2"  type="submit">Edit</button>
+        <button  class="btn btn-default" type="button" [mat-dialog-close]="1">Cancel</button>
       </div>
 
   </form>

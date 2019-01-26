@@ -27,4 +27,8 @@ editPerson(id: number, person: Person) {
   return this.http.put('http://localhost:5000/api/person/' + id, person);
 }
 
+deletePerson(id: number) {
+  return this.http.delete('http://localhost:5000/api/person/' + id);
+}
+
 }

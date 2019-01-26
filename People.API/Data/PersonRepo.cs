@@ -30,7 +30,12 @@ namespace People.API.Data
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            string sql = "DELETE FROM Person WHERE Id = @Id;";
+
+            using(var connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(sql, new {Id = id});
+            }
         }
 
 

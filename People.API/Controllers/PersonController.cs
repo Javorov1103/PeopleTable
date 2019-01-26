@@ -28,17 +28,27 @@ namespace People.API.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult Create(CreatePersonDto model) {
+        public IActionResult Create(CreatePersonDto model) 
+        {
             this.repo.Create(model);
 
             return StatusCode(200);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Edit(int id,EditPersonDto model) {
+        public IActionResult Edit(int id,EditPersonDto model) 
+        {
             this.repo.Edit(model);
 
             return StatusCode(201);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            this.repo.Delete(id);
+
+            return StatusCode(202);
         }
     }
 }

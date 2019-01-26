@@ -4,6 +4,7 @@ import { PersonService } from 'src/app/_services/person.service';
 import { MatSort, MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
 import { PersonCreateComponent } from '../person-create/person-create.component';
 import { PersonEditComponent } from '../person-edit/person-edit.component';
+import { PersonDeleteComponent } from '../person-delete/person-delete.component';
 
 @Component({
   selector: 'app-people-table',
@@ -11,9 +12,6 @@ import { PersonEditComponent } from '../person-edit/person-edit.component';
   styleUrls: ['./people-table.component.css']
 })
 export class PeopleTableComponent implements OnInit {
-
-  // createMode = false;
-  editMode = false;
 
   // This will be our data table
   people: Person[];
@@ -40,13 +38,22 @@ export class PeopleTableComponent implements OnInit {
     });
   }
 
+  // Calls the PersonCreateComponent
   addNew() {
     this.dialog.open(PersonCreateComponent);
   }
 
+  // Calls the PersonEditComponent
   editPerson(id: number, firstName: string, lastName: string, egn: string, weight: number, height: number) {
     this.dialog.open(PersonEditComponent, {
       data: {id: id, firstName: firstName, lastName: lastName, egn: egn, weight: weight, height: height}
+    });
+  }
+
+  // Calls the PersonDeleteComponent
+  deletePerson(id: number, firstName: string, lastName: string, egn: string) {
+    this.dialog.open(PersonDeleteComponent, {
+      data: {id: id, firstName: firstName, lastName: lastName, egn: egn}
     });
   }
 

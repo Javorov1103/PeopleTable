@@ -47,7 +47,6 @@
           <!-- actions -->  
         <ng-container matColumnDef="actions">
           <mat-header-cell *matHeaderCellDef>
-              <!-- <button class="btn btn-primary btn-lg mt-5 ml-5"  routerLinkActive="router-link-active"  (click)="createToggle()">Create a Person</button> -->
             <button mat-icon-button color="primary" (click)="addNew()">
                 <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
             </button>
@@ -58,7 +57,7 @@
               <mat-icon aria-label="Edit">edit</mat-icon>
             </button>
       
-            <button mat-icon-button color="accent" (click)="editToggle()">
+            <button mat-icon-button color="accent" (click)="deletePerson(row.id, row.firstName, row.lastName, row.egn)">
               <mat-icon aria-label="Delete">delete</mat-icon>
             </button>
           </mat-cell>

@@ -9,7 +9,6 @@ import { PersonService } from 'src/app/_services/person.service';
 })
 export class PersonEditComponent implements OnInit {
   @Output() cancelEdit = new EventEmitter();
-  model: any = {};
 
   constructor(private personService: PersonService, @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog) { }
 
@@ -18,19 +17,13 @@ export class PersonEditComponent implements OnInit {
 
   // Method for editing a Person Object
   edit() {
-    this.personService.editPerson(this.data.id ,this.data).subscribe( () => {
+    this.personService.editPerson(this.data.id, this.data).subscribe( () => {
       console.log('edit succsesfull');
       this.dialog.closeAll();
       window.location.reload();
     }, error => {
       console.log(error);
     });
-  }
-
-
-  // Method for closing the editing dialog
-  cancel() {
-    this.dialog.closeAll();
   }
 
 }

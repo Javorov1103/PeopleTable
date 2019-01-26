@@ -14,6 +14,7 @@ import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { TwoDigitDecimaNumberDirective } from './_helpers/two-digit-decimal.directive';
 import { PersonEditComponent } from './people/person-edit/person-edit.component';
+import { PersonDeleteComponent } from './people/person-delete/person-delete.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PersonEditComponent } from './people/person-edit/person-edit.component'
     PeopleTableComponent,
     PersonCreateComponent,
     TwoDigitDecimaNumberDirective,
-    PersonEditComponent
+    PersonEditComponent,
+    PersonDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { PersonEditComponent } from './people/person-edit/person-edit.component'
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    PersonEditComponent
+    PersonEditComponent,
+    PersonDeleteComponent
   ]
 })
 export class AppModule { }
