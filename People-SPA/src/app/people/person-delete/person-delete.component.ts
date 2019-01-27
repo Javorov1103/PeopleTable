@@ -18,7 +18,6 @@ export class PersonDeleteComponent implements OnInit {
     this.personService.deletePerson(this.data.id).subscribe(() => {
       console.log('edit succsesfull');
       this.dialog.closeAll();
-      window.location.reload();
     }, error => {
       console.log(error);
     });

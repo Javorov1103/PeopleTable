@@ -8,7 +8,6 @@ import { MatDialog} from '@angular/material';
   styleUrls: ['./person-create.component.css']
 })
 export class PersonCreateComponent implements OnInit {
-  @Output() cancelCreate = new EventEmitter();
   model: any = {};
 
   constructor(private personService: PersonService, private dialog: MatDialog) { }
@@ -21,7 +20,6 @@ export class PersonCreateComponent implements OnInit {
     this.personService.createPerson(this.model).subscribe( () => {
       console.log('creation succsesfull');
       this.dialog.closeAll();
-      window.location.reload();
     }, error => {
       console.log(error);
     });

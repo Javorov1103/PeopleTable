@@ -11,6 +11,7 @@ export class PersonService {
 
 constructor(private http: HttpClient) { }
 
+
 // Get a collection of Person
 getPeople(): Observable<Person[]> {
   return this.http.get<Person[]>('http://localhost:5000/api/person');
@@ -24,9 +25,10 @@ createPerson(model: any) {
 
 // Edit the concrete PersonObject
 editPerson(id: number, person: Person) {
-  return this.http.put('http://localhost:5000/api/person/' + id, person);
+  return  this.http.put('http://localhost:5000/api/person/' + id, person);
 }
 
+// Delete the concrete PersonObject
 deletePerson(id: number) {
   return this.http.delete('http://localhost:5000/api/person/' + id);
 }

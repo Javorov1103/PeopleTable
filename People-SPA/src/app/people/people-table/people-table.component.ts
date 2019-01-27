@@ -40,25 +40,24 @@ export class PeopleTableComponent implements OnInit {
 
   // Calls the PersonCreateComponent
   addNew() {
-    this.dialog.open(PersonCreateComponent);
+    const dialogRef = this.dialog.open(PersonCreateComponent);
+    dialogRef.afterClosed().subscribe(() => this.ngOnInit());
   }
 
   // Calls the PersonEditComponent
   editPerson(id: number, firstName: string, lastName: string, egn: string, weight: number, height: number) {
-    this.dialog.open(PersonEditComponent, {
+    const dialogRef = this.dialog.open(PersonEditComponent, {
       data: {id: id, firstName: firstName, lastName: lastName, egn: egn, weight: weight, height: height}
     });
+    dialogRef.afterClosed().subscribe(() => this.ngOnInit());
   }
 
   // Calls the PersonDeleteComponent
   deletePerson(id: number, firstName: string, lastName: string, egn: string) {
-    this.dialog.open(PersonDeleteComponent, {
+    const dialogRef = this.dialog.open(PersonDeleteComponent, {
       data: {id: id, firstName: firstName, lastName: lastName, egn: egn}
     });
-  }
-
-  private refresh() {
-    this.paginator._changePageSize(this.paginator.pageSize);
+    dialogRef.afterClosed().subscribe(() => this.ngOnInit());
   }
 
 }
