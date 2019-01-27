@@ -13,8 +13,9 @@ namespace People.API.Dtos
         [Required]
         public string LastName { get; set; }
 
+        
         [Required]
-        [StringLength(10, MinimumLength = 10)]
+        [RegularExpression("\\d{10}")]
         public string EGN { get; set; }
 
         [Required]

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Person } from '../_models/Person';
-import { MatDialog } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'

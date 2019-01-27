@@ -15,12 +15,12 @@ namespace People.API.Controllers
     {
         private readonly IPersonRepo repo;
 
+        //Controller for Person Object - CRUD methods below
         public PersonController(IPersonRepo repo)
         {
             this.repo = repo;
         }
 
-        // Return all people from the Data Base via repo
         [HttpGet]
         public ActionResult<IEnumerable<Person>> GetAll()
         {

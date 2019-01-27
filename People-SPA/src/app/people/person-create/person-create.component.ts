@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { PersonService } from 'src/app/_services/person.service';
 import { MatDialog} from '@angular/material';
+import { NgxNotificationService } from 'ngx-notification';
 
 @Component({
   selector: 'app-person-create',
@@ -10,18 +11,20 @@ import { MatDialog} from '@angular/material';
 export class PersonCreateComponent implements OnInit {
   model: any = {};
 
-  constructor(private personService: PersonService, private dialog: MatDialog) { }
+  constructor(private personService: PersonService,
+    private dialog: MatDialog,
+    private ngxNotificationService: NgxNotificationService) { }
 
   ngOnInit() {
   }
 
-// Method for sending data for needed for creating Peson object in the db
+// Using the PersonService we send a post request to the server to create a new Person obj
   create() {
     this.personService.createPerson(this.model).subscribe( () => {
-      console.log('creation succsesfull');
+      this.ngxNotificationService.sendMessage('Successfully added new person', 'success', 'bottom-right');
       this.dialog.closeAll();
     }, error => {
-      console.log(error);
+      this.ngxNotificationService.sendMessage(error, 'warning', 'bottom-right');
     });
   }
 

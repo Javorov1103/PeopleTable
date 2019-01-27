@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { TwoDigitDecimaNumberDirective } from './_helpers/two-digit-decimal.directive';
 import { PersonEditComponent } from './people/person-edit/person-edit.component';
 import { PersonDeleteComponent } from './people/person-delete/person-delete.component';
+import { NgxNotificationComponent } from 'ngx-notification';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PersonDeleteComponent } from './people/person-delete/person-delete.comp
     PersonCreateComponent,
     TwoDigitDecimaNumberDirective,
     PersonEditComponent,
-    PersonDeleteComponent
+    PersonDeleteComponent,
+    NgxNotificationComponent
   ],
   imports: [
     BrowserModule,

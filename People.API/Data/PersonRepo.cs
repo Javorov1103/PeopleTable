@@ -28,6 +28,8 @@ namespace People.API.Data
            }
         }
 
+
+        // Delete a Person object from the Db
         public void Delete(int id)
         {
             string sql = "DELETE FROM Person WHERE Id = @Id;";

@@ -5,6 +5,7 @@ import { MatSort, MatTableDataSource, MatPaginator, MatDialog } from '@angular/m
 import { PersonCreateComponent } from '../person-create/person-create.component';
 import { PersonEditComponent } from '../person-edit/person-edit.component';
 import { PersonDeleteComponent } from '../person-delete/person-delete.component';
+import { NgxNotificationService } from 'ngx-notification';
 
 @Component({
   selector: 'app-people-table',
@@ -16,7 +17,9 @@ export class PeopleTableComponent implements OnInit {
   // This will be our data table
   people: Person[];
 
-  constructor(private personService: PersonService, private dialog: MatDialog) { }
+  constructor(
+    private personService: PersonService,
+    private dialog: MatDialog) { }
 
   // Setting the colums of the table
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'egn', 'weight', 'height', 'actions'];
@@ -29,7 +32,8 @@ export class PeopleTableComponent implements OnInit {
   // Sets to use default pagination
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  // Use the personService to get from the API all the people, set them to the dataSource and set the sorting.
+  // Use the personService to get from the API all the people,
+  // set them to the dataSource, set the sorting and pagination.
   ngOnInit() {
     this.personService.getPeople().subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
