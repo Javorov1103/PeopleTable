@@ -4,6 +4,8 @@ using People.API.Data.Contracts;
 using People.API.Models;
 using Dapper;
 using People.API.Dtos;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace People.API.Data
 {
@@ -18,13 +20,36 @@ namespace People.API.Data
 
         public void Create(CreatePersonDto model)
         {
-            string sql = "INSERT INTO Person (FirstName, LastName, EGN, Height, Weight) VALUES (@FirstName, @LastName, @EGN, @Height, @Weight)";
+            string sqlInsertPerson = @"INSERT INTO Person (FirstName, LastName, EGN, Height, Weight) 
+                            VALUES (@FirstName, @LastName, @EGN, @Height, @Weight) 
+                            SELECT CAST(SCOPE_IDENTITY() as int)";
+
+            string sqlInsertPersonsCountries = @"INSERT INTO PersonsCountries VALUES(@PersonId,@CountryId)";
+
+            Country[] countries = null;
             
+                // If Model's countries are not null we deserialize them to an Array of Countries
+            if (model.Countries != null) {
+                    countries = JsonConvert.DeserializeObject<Country[]>(model.Countries);
+            }
+            
+
+
            using(var connection= new SqlConnection(connectionString))
            {
-               connection.Execute(sql, new {FirstName = model.FirstName,LastName = model.LastName,
+               var createdUserId = connection.Query<int>(sqlInsertPerson, new {FirstName = model.FirstName,LastName = model.LastName,
                EGN = model.EGN, Height =model.Height, Weight = model.Weight
-               });
+               }).Single();
+
+                // If countries are not null we add them to the DB
+            if(countries !=null)
+            {
+                for(int i =0; i<countries.Length; i++)
+                    {
+                   connection.Execute(sqlInsertPersonsCountries, new{PersonId = createdUserId, CountryId = countries[i].Id});
+                    }
+            }
+              
            }
         }
 

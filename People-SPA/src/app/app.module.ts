@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { PersonService } from './_services/person.service';
 import { PeopleTableComponent } from './people/people-table/people-table.component';
 import { PersonCreateComponent } from './people/person-create/person-create.component';
-import { FormsModule, FormBuilder } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { TwoDigitDecimaNumberDirective } from './_helpers/two-digit-decimal.directive';
@@ -40,7 +40,9 @@ import { NgxNotificationComponent } from 'ngx-notification';
     FormsModule,
     RouterModule.forRoot(appRoutes),
     MatPaginatorModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [
    PersonService,

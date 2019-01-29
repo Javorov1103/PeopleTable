@@ -30,6 +30,7 @@ namespace People.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddCors();
             services.AddTransient<IPersonRepo>(f => new PersonRepo(@"Server=DESKTOP-N8JQK16\SQLEXPRESS;Database=PeopleDb;Trusted_Connection=True;MultipleActiveResultSets=true"));
+            services.AddTransient<ICountryRepo>(f => new CountryRepo(@"Server=DESKTOP-N8JQK16\SQLEXPRESS;Database=PeopleDb;Trusted_Connection=True;MultipleActiveResultSets=true"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

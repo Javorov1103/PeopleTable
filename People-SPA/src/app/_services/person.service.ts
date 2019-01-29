@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Person } from '../_models/Person';
+import { Country } from '../_models/Country';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,11 @@ editPerson(id: number, person: Person) {
 // Delete the concrete PersonObject
 deletePerson(id: number) {
   return this.http.delete('http://localhost:5000/api/person/' + id);
+}
+
+// Get a collection of all Countries
+getCountries(): Observable<Country[]> {
+  return this.http.get<Country[]>('http://localhost:5000/api/country');
 }
 
 }

@@ -1,6 +1,7 @@
 <div class="container">
   <h2 class="text-center text-primary">Create Person</h2>
-  <form name="createForm" (ngSubmit) ="f.form.valid && create()" #f="ngForm" novalidate >
+  <form name="createForm" (ngSubmit) ="f.form.valid && create()" #f="ngForm" novalidate class="d-flex">
+    <div class="left">
       <div class="form-group">
           <label for="firstName">First Name</label>
           <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
@@ -41,11 +42,21 @@
           <div *ngIf="height?.errors.required">Height is required</div>
         </div>
       </div>
+    </div>
 
-      <div class="form-group text-center">
-        <button  class="btn btn-success mr-2" type="submit">Create</button>
-        <button  class="btn btn-default" type="button" [mat-dialog-close]="1">Cancel</button>
+      <div class="right form-group ml-4">
+        <p>Countries Visited</p>
+        <div [formGroup]="myForm">
+          <div *ngFor="let country of countries">
+            <input type="checkbox" (change)="onChange(country, $event.target.checked)">
+            {{country.countryName}}<br>
+          </div>
+        </div>
+
+          <div class="form-group text-center">
+              <button  class="btn btn-success mr-2" type="submit">Create</button>
+              <button  class="btn btn-default" type="button" [mat-dialog-close]="1">Cancel</button>
+            </div>
       </div>
-
-  </form>
+    </form>
 </div>

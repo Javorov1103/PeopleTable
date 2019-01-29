@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using People.API.Models;
 
 namespace People.API.Dtos
 {
@@ -19,5 +21,7 @@ namespace People.API.Dtos
 
         [Required]
         public decimal Weight { get; set; }
+
+        public string Countries { get; set; }
     }
 }
