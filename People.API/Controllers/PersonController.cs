@@ -22,7 +22,7 @@ namespace People.API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Person>> GetAll()
+        public ActionResult<IEnumerable<ViewPersonDto>> GetAll()
         {
             return repo.GetAll().ToList();
         }

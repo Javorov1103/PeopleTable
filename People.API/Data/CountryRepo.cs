@@ -19,14 +19,14 @@ namespace People.API.Data
         
         public IEnumerable<Country> GetAll()
         {
-            IEnumerable<Country> coutries = null;
+            IEnumerable<Country> countries = null;
 
             using(var connection = new SqlConnection(connectionString))
             {
-                coutries = connection.Query<Country>("SELECT Id, CountryName FROM Countries");
+                countries = connection.Query<Country>("SELECT Id, CountryName FROM Countries");
             }
 
-            return coutries;
+            return countries;
         }
     }
 }

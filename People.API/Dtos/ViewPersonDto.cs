@@ -1,29 +1,24 @@
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace People.API.Dtos
 {
-    public class EditPersonDto
+    public class ViewPersonDto
     {
-        [Required]
         public int Id { get; set; }
-
-        [Required]
         public string FirstName { get; set; }
 
-        [Required]
+        
         public string LastName { get; set; }
 
         
-        [Required]
-        [RegularExpression("\\d{10}")]
         public string EGN { get; set; }
 
-        [Required]
+        
         public decimal Height { get; set; }
 
-        [Required]
+        
         public decimal Weight { get; set; }
 
-        public string[] Countries { get; set; }
+        public IList<string> Countries { get; set; }
     }
 }

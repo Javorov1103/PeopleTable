@@ -6,7 +6,7 @@ namespace People.API.Data.Contracts
 {
     public interface IPersonRepo
     {
-         IEnumerable<Person> GetAll();
+         IEnumerable<ViewPersonDto> GetAll();
 
          void Create(CreatePersonDto model);
 

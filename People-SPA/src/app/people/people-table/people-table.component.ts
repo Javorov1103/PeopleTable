@@ -22,7 +22,7 @@ export class PeopleTableComponent implements OnInit {
     private dialog: MatDialog) { }
 
   // Setting the colums of the table
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'egn', 'weight', 'height', 'actions'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'egn', 'weight', 'height', 'countries', 'actions'];
 
   // Declare our table and the type of object that we will use
   dataSource: MatTableDataSource<Person>;
@@ -49,9 +49,9 @@ export class PeopleTableComponent implements OnInit {
   }
 
   // Calls the PersonEditComponent
-  editPerson(id: number, firstName: string, lastName: string, egn: string, weight: number, height: number) {
+  editPerson(id: number, firstName: string, lastName: string, egn: string, weight: number, height: number, countries: string[]) {
     const dialogRef = this.dialog.open(PersonEditComponent, {
-      data: {id: id, firstName: firstName, lastName: lastName, egn: egn, weight: weight, height: height}
+      data: {id: id, firstName: firstName, lastName: lastName, egn: egn, weight: weight, height: height, countries: countries}
     });
     dialogRef.afterClosed().subscribe(() => this.ngOnInit());
   }

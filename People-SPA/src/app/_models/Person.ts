@@ -1,3 +1,5 @@
+import { Country } from './Country';
+
 export class Person {
     id: number;
     firstName: string;
@@ -5,4 +7,5 @@ export class Person {
     egn: string;
     weight: number;
     height: number;
+    countries: string[];
 }

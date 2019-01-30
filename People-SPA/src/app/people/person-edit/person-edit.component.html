@@ -1,6 +1,7 @@
 <div class="container">
   <h2 class="text-center text-primary">Edit Person with id {{data.id}}</h2>
-  <form name="createForm" (ngSubmit) ="f.form.valid && edit()" #f="ngForm" novalidate >
+  <form name="createForm" (ngSubmit) ="f.form.valid && edit()" #f="ngForm" novalidate class="d-flex">
+      <div class="left">
       <div class="form-group">
           <label for="firstName">First Name</label>
           <input type="text" class="form-control" name="firstName" [(ngModel)]="data.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
@@ -41,11 +42,21 @@
           <div *ngIf="height?.errors.required">Height is required</div>
         </div>
       </div>
+    </div>
 
-      <div class="form-group text-center">
-        <button  class="btn btn-success mr-2"  type="submit">Edit</button>
-        <button  class="btn btn-default" type="button" [mat-dialog-close]="1">Cancel</button>
+    <div class="right form-group ml-4">
+      <p>Countries Visited</p>
+      <div>
+        <div *ngFor="let country of countries; let i=index">
+            <input type="checkbox" [ngModel] = "isCountryVisited(country.countryName)" (change)="onChange(country.countryName, $event.target.checked)" [checked]="isCountryVisited(country.countryName)" name="country_{{i}}">
+            {{country.countryName}}<br>
+          </div>
+        </div>
+
+          <div class="form-group text-center">
+            <button  class="btn btn-success mr-2"  type="submit">Edit</button>
+            <button  class="btn btn-default" type="button" [mat-dialog-close]="1">Cancel</button>
+          </div>
       </div>
-
   </form>
 </div>
