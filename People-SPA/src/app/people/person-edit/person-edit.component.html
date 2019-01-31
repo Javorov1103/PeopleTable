@@ -48,7 +48,7 @@
       <p>Countries Visited</p>
       <div>
         <div *ngFor="let country of countries; let i=index">
-            <input type="checkbox" [ngModel] = "isCountryVisited(country.countryName)" (change)="onChange(country.countryName, $event.target.checked)" [checked]="isCountryVisited(country.countryName)" name="country_{{i}}">
+            <input type="checkbox" [ngModel] = "isCountryVisited(country.countryName)" (change)="onChange(country.countryName, $event.target.checked)" name="country_{{i}}">
             {{country.countryName}}<br>
           </div>
         </div>

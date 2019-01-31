@@ -60,6 +60,7 @@ export class PersonCreateComponent implements OnInit {
     });
   }
 
+  // On change in a checkbox we call this method that add or remove visited country
   onChange(country: string, isChecked: boolean) {
     this.countryFromArray = <FormArray>this.myForm.controls.country;
 

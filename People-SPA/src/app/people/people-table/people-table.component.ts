@@ -5,7 +5,6 @@ import { MatSort, MatTableDataSource, MatPaginator, MatDialog } from '@angular/m
 import { PersonCreateComponent } from '../person-create/person-create.component';
 import { PersonEditComponent } from '../person-edit/person-edit.component';
 import { PersonDeleteComponent } from '../person-delete/person-delete.component';
-import { NgxNotificationService } from 'ngx-notification';
 
 @Component({
   selector: 'app-people-table',

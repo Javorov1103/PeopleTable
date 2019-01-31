@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { PersonService } from 'src/app/_services/person.service';
 import { NgxNotificationService } from 'ngx-notification';
 import { Country } from 'src/app/_models/Country';
-import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-person-edit',
@@ -32,17 +32,11 @@ export class PersonEditComponent implements OnInit {
   constructor(private personService: PersonService,
     @Inject(MAT_DIALOG_DATA) public data: any,
   private dialog: MatDialog,
-  private ngxNotificationService: NgxNotificationService,
-  private formBuilder: FormBuilder) { }
+  private ngxNotificationService: NgxNotificationService) { }
 
 
   ngOnInit() {
     this.personService.getCountries().subscribe(data => this.countries = data);
-
-    // Create our checklist form
-    this.myForm = this.formBuilder.group({
-      country: this.formBuilder.array([])
-  });
   }
 
   // Using the PersonService we send a put request to the server to update a Person obj in the db
@@ -65,7 +59,6 @@ export class PersonEditComponent implements OnInit {
       const index = this.data.countries.indexOf(country);
       this.data.countries.splice(index, 1);
     }
-    console.log(this.data.countries);
   }
 
   isCountryVisited(country: string): boolean {

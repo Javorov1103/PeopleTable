@@ -1,5 +1,3 @@
-import { Country } from './Country';
-
 export class Person {
     id: number;
     firstName: string;

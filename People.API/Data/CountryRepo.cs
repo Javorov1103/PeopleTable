@@ -16,7 +16,7 @@ namespace People.API.Data
             this.connectionString = connectionString;
         }
 
-        
+        // Get all countries from Db
         public IEnumerable<Country> GetAll()
         {
             IEnumerable<Country> countries = null;

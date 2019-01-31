@@ -19,6 +19,8 @@ namespace People.API.Data
             this.connectionString = connectionString;
         }
 
+
+        // Create a Person in db
         public void Create(CreatePersonDto model)
         {
             string sqlInsertPerson = @"INSERT INTO Person (FirstName, LastName, EGN, Height, Weight) 
@@ -38,16 +40,15 @@ namespace People.API.Data
            using(var connection= new SqlConnection(connectionString))
            {
                var createdUserId = connection.Query<int>(sqlInsertPerson, new {FirstName = model.FirstName,LastName = model.LastName,
-               EGN = model.EGN, Height =model.Height, Weight = model.Weight
-               }).Single();
+               EGN = model.EGN, Height =model.Height, Weight = model.Weight}).Single();
 
             // If countries are not null we add them to the DB
             if(countries !=null)
             {
                 for(int i =0; i<countries.Length; i++)
-                    {
+                {
                    connection.Execute(sqlInsertPersonsCountries, new{PersonId = createdUserId, CountryId = countries[i].Id});
-                    }
+                }
             }
               
            }
@@ -79,15 +80,14 @@ namespace People.API.Data
 
             if (visitedCountries != null)
             {
+                // Clean up our strings from ' " '
                 for(int i =0; i<visitedCountries.Length;i++)
                     {
                         visitedCountries[i] = visitedCountries[i].Replace("\"", string.Empty);
                     }
             }
 
-            
-
-            // Get all the countries
+            // Get all the countries all from DB
             IEnumerable<Country> countries = null;
 
             using(var connection = new SqlConnection(connectionString))
@@ -100,7 +100,7 @@ namespace People.API.Data
                 countries = connection.Query<Country>("SELECT Id, CountryName FROM Countries");
             }
             
-            // Use those ids for  inserting into PersonsCountries table
+            // Get the ids of the countries that the user marked as visited
             IList<int> countriesId = new List<int>();
 
 
@@ -114,17 +114,19 @@ namespace People.API.Data
             
 
             // If there are no visited countries we break the method
-            // But before that we id there are no visited countries passed from the frond end we delete all the data for the current Person
+            // But in case that the user just unchecked all the visited countries we execute this query
             if(countriesId.Count() == 0)
             {
                 string sqlDelete = "DELETE FROM PersonsCountries WHERE Id_Person =@Id_Person;";
                 using(var connection = new SqlConnection(connectionString))
-                        {
-                            connection.Execute(sqlDelete, new {Id_Person=model.Id});
-                        }
+                    {
+                        connection.Execute(sqlDelete, new {Id_Person=model.Id});
+                    }
 
                 return;
             }
+
+            // If there are marked visited countries we create a string builder to create our query
 
             StringBuilder sqlUpdateJunctionTable = new StringBuilder();
             sqlUpdateJunctionTable.Append(@"DELETE FROM PersonsCountries WHERE Id_Person =@Id_Person;
